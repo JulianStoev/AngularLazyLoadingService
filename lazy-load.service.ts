@@ -44,21 +44,19 @@ export class LazyLoadService {
 
     // load the component if not already loaded
     if (!this.promises[data.item]) {
-      setTimeout(() => { // prevent expression changed error...
-        this.promises[data.item] = this.getImport(data.item).then(module => {
-          let name;
-          Object.keys(module).forEach(k => {
-            if (module[k].hasOwnProperty('ɵcmp')) {
-              name = module[k];
-              return;
-            }
-          });
-          // just in case send to the back of the event loop to be sure we have the promise before the callback
-          setTimeout(() => {
-            this.callBack(data.callback);
-          });
-          return name;
+      this.promises[data.item] = this.getImport(data.item).then(module => {
+        let name;
+        Object.keys(module).forEach(k => {
+          if (module[k].hasOwnProperty('ɵcmp')) {
+            name = module[k];
+            return;
+          }
         });
+        // just in case send to the back of the event loop to be sure we have the promise before the callback
+        setTimeout(() => {
+          this.callBack(data.callback);
+        });
+        return name;
       });
       return;
     }
