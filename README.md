@@ -64,7 +64,7 @@ import { CommonModule } from '@angular/common';
   exports: [StylesComponent]
 })
 class StylesModule { }
-```
+``` 
 
 - Note you have the module inside the component and it has no export!
 - The initData will hold any data you may have passed with the load method.
