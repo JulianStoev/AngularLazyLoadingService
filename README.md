@@ -24,9 +24,10 @@ this.lazyLoad.load({
 	}
 });
 ```
-- item: the item you wish to dynamically include as described in your lazyLoad service interface **required**
-- data: pass some data to the dynamically included component
-- callback: the component is loaded, do something
+- **item**: the item you wish to dynamically include as described in your lazyLoad service interface **required**
+- **data**: pass some data to the dynamically included component
+- **callback**: the component is loaded, do something
+
 
 HTML
 ```
@@ -51,7 +52,6 @@ export class StylesComponent {
 		@Inject('initData') private initData
 	) {}
 }
-
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
