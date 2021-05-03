@@ -15,13 +15,13 @@ Let's assume you imported the service as lazyLoad
 TS
 ```
 this.lazyLoad.load({
-	item: 'styles',
-	data: {
-		someName: 'someVal'
-	},
-	callback: () => {
+    item: 'styles',
+    data: {
+        someName: 'someVal'
+    },
+    callback: () => {
 
-	}
+    }
 });
 ```
 - **item**: the item you wish to dynamically include as described in your lazyLoad service interface **required**
@@ -32,9 +32,9 @@ this.lazyLoad.load({
 HTML
 ```
 <ng-template 
-	[ngComponentOutletInjector]="lazyLoad.injectors.styles" 
-	[ngComponentOutlet]="lazyLoad.promises.styles | async" 
-	*ngIf="lazyLoad.promises.styles">
+    [ngComponentOutletInjector]="lazyLoad.injectors.styles" 
+    [ngComponentOutlet]="lazyLoad.promises.styles | async" 
+    *ngIf="lazyLoad.promises.styles">
 </ng-template>
 ```
 
@@ -43,25 +43,25 @@ styles.component.ts
 import { Component, Inject } from '@angular/core';
 
 @Component({
-  selector: 'app-styles',
-  templateUrl: './styles.component.html',
-  styleUrls: ['./styles.component.scss']
+    selector: 'app-styles',
+    templateUrl: './styles.component.html',
+    styleUrls: ['./styles.component.scss']
 })
 export class StylesComponent {
-	constructor(
-		@Inject('initData') private initData
-	) {}
+    constructor(
+    @In ject('initData') private initData
+    ) {}
 }
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [StylesComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [StylesComponent]
+    declarations: [StylesComponent],
+    imports: [
+        CommonModule
+    ],
+    exports: [StylesComponent]
 })
 class StylesModule { }
 ``` 
