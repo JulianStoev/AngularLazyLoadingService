@@ -49,7 +49,7 @@ import { Component, Inject } from '@angular/core';
 })
 export class StylesComponent {
     constructor(
-    @In ject('initData') private initData
+    @Inject('initData') private initData
     ) {}
 }
 
