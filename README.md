@@ -1,6 +1,6 @@
 # Angular Lazy Loading Service
 
-Big part of Angular optimization is the so called lazy loading. To take it further we can dynamically load components on demand. That's what this service do, it loads a component only if you need it so there is no need of dependency injection ahead of time.
+Big part of Angular optimization is the so called lazy loading. To take it further we can **dynamically load components on demand**. That's what this service do, it loads a component only if you need it so there is no need of dependency injection ahead of time.
 
 ### Prerequisite
 
@@ -20,14 +20,21 @@ this.lazyLoad.load({
 		someName: 'someVal'
 	},
 	callback: () => {
-		
+
 	}
 });
 ```
+- item: the item you wish to dynamically include as described in your lazyLoad service interface **required**
+- data: pass some data to the dynamically included component
+- callback: the component is loaded, do something
 
 HTML
 ```
-<ng-template [ngComponentOutletInjector]="lazyLoad.injectors.styles" [ngComponentOutlet]="lazyLoad.promises.styles | async" *ngIf="lazyLoad.promises.styles"></ng-template>
+<ng-template 
+	[ngComponentOutletInjector]="lazyLoad.injectors.styles" 
+	[ngComponentOutlet]="lazyLoad.promises.styles | async" 
+	*ngIf="lazyLoad.promises.styles">
+</ng-template>
 ```
 
 styles.component.ts
