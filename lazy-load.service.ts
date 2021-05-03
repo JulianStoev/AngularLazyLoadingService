@@ -1,3 +1,6 @@
+// Lazy Loading v1.1
+// https://github.com/JulianStoev/AngularLazyLoadingService
+
 import { Injectable, Injector } from '@angular/core';
 
 type itemsInterface = 'styles' | 'scripts';
